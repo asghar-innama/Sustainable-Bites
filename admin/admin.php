@@ -105,35 +105,35 @@ if($_SESSION['name']==''){
                         <i class="uil uil-user"></i>
                         <!-- <i class="fa-solid fa-user"></i> -->
                         <span class="text">Total users</span>
-                        <!--?php
+                        <?php
                            $query="SELECT count(*) as count FROM  login";
                            $result=mysqli_query($connection, $query);
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                         <span class="number">50,120</span> -->
+                         <!--span class="number">50,120</span-->
                     </div>
                     <div class="box box2">
                         <i class="uil uil-comments"></i>
                         <span class="text">Feedbacks</span>
-                         <!--?php
+                        <?php
                            $query="SELECT count(*) as count FROM  user_feedback";
                            $result=mysqli_query($connection, $query);
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                         <span class="number">20,120</span> -->
+                         <!--span class="number">20,120</span-->
                     </div>
                     <div class="box box3">
                         <i class="uil uil-heart"></i>
-                        <span class="text">Total doantes</span>
-                         <!--?php
+                        <span class="text">Total donatees</span>
+                         <?php
                            $query="SELECT count(*) as count FROM food_donations";
                            $result=mysqli_query($connection, $query);
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                        <span class="number">10,120</span> -->
+                        <!--span class="number">10,120</span-->
                     </div>
                 </div>
             </div>

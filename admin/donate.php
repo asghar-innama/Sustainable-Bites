@@ -121,19 +121,19 @@ if($_SESSION['name']==''){
          </form>
          <br>
 
-         <!--?php
-    /*
-    Get the selected location from the form
-    //if(isset($_POST['location'])) {
-      //$location = $_POST['location'];
+         <?php
+    
+    //Get the selected location from the form
+    if(isset($_POST['location'])) {
+      $location = $_POST['location'];
       
       // Query the database for people in the selected location
-     // $sql = "SELECT * FROM food_donations WHERE location='$location'";
-     // $result=mysqli_query($connection, $sql);
-    //   $result = $conn->query($sql);
+     $sql = "SELECT * FROM food_donations WHERE location='$location'";
+     $result=mysqli_query($connection, $sql);
+      //$result = $conn->query($sql);
       
       // If there are results, display them in a table
-      //if ($result->num_rows > 0) {
+      if ($result->num_rows > 0) {
         // echo "<h2>Food Donate in $location:</h2>";
         
         echo" <div class=\"table-container\">";
@@ -164,8 +164,8 @@ if($_SESSION['name']==''){
       
    
     }
-  ?>*/
- </div>-->
+  ?>
+ </div>
             </div>
     </section>
 

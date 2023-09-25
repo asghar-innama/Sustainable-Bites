@@ -107,7 +107,7 @@ if($_SESSION['name']==''){
            
         </tr>
         </thead>
-         <!--?php
+         <?php
           
 
 
@@ -131,13 +131,13 @@ if($_SESSION['name']==''){
           }
     
       
-       ?--> 
+       ?> 
     
         </tbody>
-        <!--?php foreach ($data as $row) { ?>
-        <!?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
+        <?php foreach ($data as $row) { ?>
+        <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
 ?>
-  <!?php } ?-->
+  <?php } ?>
     </table>
          </div>
                 </div>

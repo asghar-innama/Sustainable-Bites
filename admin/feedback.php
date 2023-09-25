@@ -117,7 +117,7 @@ if($_SESSION['name']==''){
         </thead>
        <tbody>
    
-         <!--?php
+         <?php
     
         $query="select * from user_feedback ";
         $result=mysqli_query($connection, $query);
@@ -127,7 +127,7 @@ if($_SESSION['name']==''){
 
              }
           }
-       ?--> 
+       ?> 
     
         </tbody>
     </table>
