@@ -1,10 +1,10 @@
-
 <?php
 // $connection = mysqli_connect("localhost:3307", "root", "");
 // $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
  include("connect.php"); 
-if($_SESSION['name']==''){
+if($_SESSION['name']=='')
+{
 	header("location:signin.php");
 }
 ?>
@@ -16,21 +16,15 @@ if($_SESSION['name']==''){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="admin.css">
-     
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
     <title>Admin Dashboard Panel</title> 
     
 <?php
  $connection=mysqli_connect("localhost:3307","root","");
  $db=mysqli_select_db($connection,'demo');
- 
-
-
 ?>
 </head>
 <body>
@@ -39,7 +33,6 @@ if($_SESSION['name']==''){
             <div class="logo-image">
                 <!--<img src="images/logo.png" alt="">-->
             </div>
-
             <span class="logo_name">ADMIN</span>
         </div>
 

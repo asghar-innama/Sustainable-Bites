@@ -1,16 +1,10 @@
 <?php
 session_start();
 include 'connection.php';
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
 $msg=0;
 if (isset($_POST['sign'])) {
   $email =mysqli_real_escape_string($connection, $_POST['email']);
   $password =mysqli_real_escape_string($connection, $_POST['password']);
- 
-  // $sanitized_emailid =  mysqli_real_escape_string($connection, $email);
-  // $sanitized_password =  mysqli_real_escape_string($connection, $password);
-
   $sql = "select * from login where email='$email'";
   $result = mysqli_query($connection, $sql);
   $num = mysqli_num_rows($result);
@@ -70,21 +64,14 @@ if (isset($_POST['sign'])) {
                 </div>
                 <div class="password">
                     <input type="password" placeholder="Password" name="password" id="password" required />
-
-                    <!-- <i class="fa fa-eye-slash" aria-hidden="true" id="showpassword"></i> -->
-                    <!-- <i class="bi bi-eye-slash" id="showpassword"></i> -->
                     <i class="uil uil-eye-slash showHidePw"></i>
-                    <!-- <p class="error">Password don't match.</p> -->
                     <?php
                     if($msg==1){
                         echo ' <i class="bx bx-error-circle error-icon"></i>';
                         echo '<p class="error">Password not match.</p>';
                     }
                     ?>
-                
                 </div>
-
-
                 <div class="btn">
                     <button type="submit" name="sign"> Sign in</button>
                 </div>
@@ -93,8 +80,6 @@ if (isset($_POST['sign'])) {
                 </div>
             </form>
         </div>
-
-
     </div>
     <script src="login.js"></script>
     <script src="admin/login.js"></script>

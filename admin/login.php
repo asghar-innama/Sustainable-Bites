@@ -209,28 +209,5 @@ if (isset($_POST['Login'])) {
   } else {
     echo "<h1><center>Account does not exists </center></h1>";
   }
-
-
-
-
-  // $query="select * from login where email='$email'and password='$password'";
-  // $qname="select name from login where email='$email'and password='$password'";
-
-
-  // if(mysqli_num_rows($query_run)==1)
-  // {
-  // //   $_SESSION['name']=$name;
-
-  //   // echo "<h1><center> Login Sucessful  </center></h1>". $name['gender'] ;
-
-  //   $_SESSION['email']=$email;
-  //   $_SESSION['name']=$name['name'];
-  //   $_SESSION['gender']=$name['gender'];
-  //   header("location:home.html");
-
-  // }
-  // else{
-  //   echo "<h1><center> Login Failed</center></h1>";
-  // }
 }
 ?>

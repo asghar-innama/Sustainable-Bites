@@ -1,7 +1,5 @@
 <?php
 session_start();
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
 $msg=0;
 if (isset($_POST['sign'])) {
@@ -9,8 +7,6 @@ if (isset($_POST['sign'])) {
   $password = $_POST['password'];
   $sanitized_emailid =  mysqli_real_escape_string($connection, $email);
   $sanitized_password =  mysqli_real_escape_string($connection, $password);
-  // $hash=password_hash($password,PASSWORD_DEFAULT);
-
   $sql = "select * from admin where email='$sanitized_emailid'";
   $result = mysqli_query($connection, $sql);
   $num = mysqli_num_rows($result);
@@ -25,46 +21,11 @@ if (isset($_POST['sign'])) {
         header("location:admin.php");
       } else {
         $msg = 1;
-        // echo '<style type="text/css">
-        // {
-        //     .password input{
-                
-        //         border:.5px solid red;
-                
-                
-        //       }
-
-        // }
-        // </style>';
-        // echo "<h1><center> Login Failed incorrect password</center></h1>";
-      }
+        }
     }
   } else {
     echo "<h1><center>Account does not exists </center></h1>";
   }
-
-
-
-
-  // $query="select * from login where email='$email'and password='$password'";
-  // $qname="select name from login where email='$email'and password='$password'";
-
-
-  // if(mysqli_num_rows($query_run)==1)
-  // {
-  // //   $_SESSION['name']=$name;
-
-  //   // echo "<h1><center> Login Sucessful  </center></h1>". $name['gender'] ;
-
-  //   $_SESSION['email']=$email;
-  //   $_SESSION['name']=$name['name'];
-  //   $_SESSION['gender']=$name['gender'];
-  //   header("location:home.html");
-
-  // }
-  // else{
-  //   echo "<h1><center> Login Failed</center></h1>";
-  // }
 }
 ?>
 
@@ -87,28 +48,14 @@ if (isset($_POST['sign'])) {
             <span class="title">Login</span>
             <br>
             <br>
-            <!-- <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
-                <div class="error"></div>
-            </div> -->
             <div class="input-group">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" >
                 <div class="error"></div>
             </div>
-            <!-- <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-                <div class="error"></div>
-            </div> -->
             <label class="textlabel" for="password">Password</label>
              <div class="password">
-              
                 <input type="password" name="password" id="password" required/>
-                <!-- <i class="fa fa-eye-slash" aria-hidden="true" id="showpassword"></i> -->
-                <!-- <i class="bi bi-eye-slash" id="showpassword"></i>  -->
-                <!-- <i class="uil uil-lock icon"></i> -->
                 <i class="uil uil-eye-slash showHidePw" id="showpassword"></i>                
                 <?php
                     if($msg==1){
@@ -117,14 +64,6 @@ if (isset($_POST['sign'])) {
                     }
                     ?> 
              </div>
-      
-
-            <!-- <div class="input-group">
-                <label for="cpassword">Confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword">
-                <div class="error"></div>
-            </div> -->
-         
             <button type="submit" name="sign">Login</button>
             <div class="login-signup" >
                     <span class="text">Don't have an account?
@@ -134,6 +73,5 @@ if (isset($_POST['sign'])) {
         </form>
     </div>
     <script src="login.js" ></script>
-    <!-- <script src="../login.js"></script> -->
 </body>
 </html>

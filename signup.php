@@ -1,10 +1,7 @@
 <?php
 include 'connection.php';
-// $connection=mysqli_connect("localhost:3307","root","");
-// $db=mysqli_select_db($connection,'demo');
-if(isset($_POST['sign']))
-{
 
+if(isset($_POST['sign'])){
     $username=$_POST['name'];
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -19,17 +16,16 @@ if(isset($_POST['sign']))
         echo "<h1><center>Account already exists</center></h1>";
     }
     else{
-    
-    $query="insert into login(name,email,password,gender) values('$username','$email','$pass','$gender')";
-    $query_run= mysqli_query($connection, $query);
-    if($query_run)
-    {
-        header("location:signin.php");  
+        $query="insert into login(name,email,password,gender) values('$username','$email','$pass','$gender')";
+        $query_run= mysqli_query($connection, $query);
+        if($query_run)
+        {
+            header("location:signin.php");  
+        }
+        else{
+            echo '<script type="text/javascript">alert("data not saved")</script>';
+        }
     }
-    else{
-        echo '<script type="text/javascript">alert("data not saved")</script>';
-    }
-}
 }
 ?>
 
@@ -81,20 +77,12 @@ if(isset($_POST['sign']))
              <div class="btn">
                 <button type="submit" name="sign">Continue</button>
              </div>
-           <!-- <button type="submit" style="background-color:white ;color: #000; margin-top:5px;  padding: 10px 25px;">
-                 <img src="google.svg" style="width:22px" >
-                 Continue With  Google </button>  --> 
             <div class="signin-up">
                  <p style="font-size: 20px; text-align: center;">Already have an account? <a href="signin.php"> Sign in</a></p>
              </div>
         </form>
         </div>
-        <!-- <div class="right">
-            <img src="cover.jpg" alt="" width="800" height="700">
-        </div> -->
-       
     </div>
-    <!-- <script src="login.js"></script> -->
     <script src="admin/login.js"></script>
 </body>
 </html>

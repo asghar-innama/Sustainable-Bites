@@ -1,11 +1,10 @@
 <?php
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
- include("connect.php"); 
+include("connect.php"); 
 if($_SESSION['name']==''){
 	header("location:signin.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,33 +62,20 @@ if($_SESSION['name']==''){
                 <li><a href="../logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
-                </a></li>
-
-                
+                </a></li>  
             </ul>
         </div>
     </nav>
-
     <section class="dashboard">
         
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <!-- <p>Food Donate</p> -->
             <p  class ="logo" >Your <b style="color: #06C167; ">History</b></p>
              <p class="user"></p>
-            <!-- <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div> -->
-            
-            <!--<img src="images/profile.jpg" alt="">-->
         </div>
-        <br>
-        <br>
-        <br>
+        <br><br><br>
         <div class="activity">
         <div class="table-container">
-         
          <div class="table-wrapper">
          <table class="table">
         <thead>
@@ -101,23 +87,16 @@ if($_SESSION['name']==''){
             <th>date/time</th>
             <th>address</th>
             <th>Quantity</th>
-            <!-- <th>Action</th> -->
-         
-          
-           
         </tr>
         </thead>
+         
          <?php
-          
-
-
           // Define the SQL query to fetch unassigned orders
           $id=$_SESSION['Aid'];
           $sql = "SELECT * FROM food_donations WHERE assigned_to =$id";
           
           // Execute the query
           $result=mysqli_query($connection, $sql);
-      
           
           // Check for errors
           if (!$result) {
@@ -129,27 +108,22 @@ if($_SESSION['name']==''){
           while ($row = mysqli_fetch_assoc($result)) {
               $data[] = $row;
           }
-    
-      
        ?> 
     
         </tbody>
-        <?php foreach ($data as $row) { ?>
-        <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
-?>
-  <?php } ?>
-    </table>
-         </div>
-                </div>
-                
-         
-            
-        </div>
-            <!-- <P>Your history</P> -->
-
         
-
+        <?php foreach ($data as $row) 
+        { ?>
+        <?php    
+        echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
+        ?>
+        <?php } ?>
+    </table>
+    </div>
+    </div>
+        </div>
     </section>
+
     <script src="admin.js"></script>
 </body>
 </html>

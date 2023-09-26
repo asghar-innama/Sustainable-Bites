@@ -1,14 +1,9 @@
 
 <?php
 include("login.php"); 
-// if($_SESSION['loggedin']==true){
-//     header("location:loginindex.html");
-// }
-
 if($_SESSION['name']==''){
 	header("location: signup.php");
 }
-
 ?> 
 
 <!DOCTYPE html>
@@ -21,9 +16,8 @@ if($_SESSION['name']==''){
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 </head>
+
 <body>
 <header>
         <div class="logo">Sustainable <b style="color: #06C167;">Bites</b></div>
@@ -49,33 +43,13 @@ if($_SESSION['name']==''){
         }
     </script>
     <div class="profile">
-    <!-- <section class="cover" >
-        
-        </section>
-     -->
         <div class="profilebox" style="">
           
             <p class="headingline" style="text-align: left;font-size:30px;"> <img src="" alt="" style="width:40px; height:  height: 25px;; padding-right: 10px; position: relative;" >Profile</p>
-<!--             
-            <img src="user.png" alt="" style="  width: 90px;
-            height: 90px;
-            /* border-radius:50% ;  */
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 10px;
-             /* border: 1px solid #06C167; */
-            ">
-            <br> -->
-              <!-- <p style="font-size: 28px;">welcome</p> -->
-              <!-- <p style="color: #06C167;">username</p> -->
               <br>
               <div class="info" style="padding-left:10px;">
               <p style="">Name  :<?php echo"". $_SESSION['name'] ;?> </p><br>
               <p style="">Email :<?php echo"". $_SESSION['email'];?> </p><br>
-              <!--p style=""Gender:?php echo"". $_SESSION['gender'] ;?> </p><br>
-               <!- <p style="font-family: 'Times New Roman', Times, serif;">gender  :<?php echo"". $_SESSION['gender'] ;?> </p><br>  -->
-              
               <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #06C167; color: white;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
               </div>
               <br>
@@ -83,9 +57,7 @@ if($_SESSION['name']==''){
          <hr>
          <br>
          <p class="heading">Your donations</p>
-         <!-- <p class="" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">Your donations</p><br> -->
-         <!-- <img src="profilecover1.jpg" alt="" width='100%' height='auto'> -->
-   <div class="table-container">
+         <div class="table-container">
          <!-- <p id="heading">donated</p> -->
          <div class="table-wrapper">
         <table class="table">
@@ -97,27 +69,23 @@ if($_SESSION['name']==''){
             <th>date/time</th>
         </tr>
         </thead>
-       <tbody>
-        
+            <tbody>
+            <?php
+            $email=$_SESSION['email'];
+            $query="select * from food_donations where email='$email'";
+            $result=mysqli_query($connection, $query);
+            if($result==true){
+                while($row=mysqli_fetch_assoc($result)){
+                    echo "<tr><td>".$row['food']."</td><td>".$row['type']."</td><td>".$row['category']."</td><td>".$row['date']."</td></tr>";
 
-         <?php
-        $email=$_SESSION['email'];
-        $query="select * from food_donations where email='$email'";
-        $result=mysqli_query($connection, $query);
-        if($result==true){
-            while($row=mysqli_fetch_assoc($result)){
-                echo "<tr><td>".$row['food']."</td><td>".$row['type']."</td><td>".$row['category']."</td><td>".$row['date']."</td></tr>";
-
-             }
-          }
-       ?> 
-    
-        </tbody>
-    </table>
+                }
+            }
+            ?> 
+            </tbody>
+        </table>
          </div>
-   </div>          
-
-        </div>
+    </div>          
+    </div>
     </div>
 </body>
 </html>

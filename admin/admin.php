@@ -26,9 +26,6 @@ if($_SESSION['name']==''){
 <?php
  $connection=mysqli_connect("localhost:3307","root","");
  $db=mysqli_select_db($connection,'demo');
- 
-
-
 ?>
 </head>
 <body>
@@ -144,8 +141,6 @@ if($_SESSION['name']==''){
                     <span class="text">Recent Donations</span>
                 </div>
             <div class="get">
-            
-
     <script src="admin.js"></script>
 </body>
 </html>

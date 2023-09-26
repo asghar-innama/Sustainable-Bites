@@ -9,10 +9,6 @@ body{
     background-color: #06C167;
      /* outline: none; */
   font-family: 'Poppins', sans-serif;
-
-
-    
-
 }
 .logo{
     text-align: center;
@@ -22,17 +18,6 @@ body{
 
 
 .regform{ 
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 420px;
-  border: 1px solid  rgba(0,0,0,0.05);
-  background: white;
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-  */
-
     width:430px;
     background-color:white;
     padding: 20px 20px 20px 20px;
@@ -42,9 +27,7 @@ body{
     color:black;
   
     font-size: 20px;
-    border-radius: 10px ;
-    /* border: 1px solid black; */
-    
+    border-radius: 10px ;    
 }
 .regformf{
   width:480px;
@@ -55,8 +38,6 @@ body{
     padding: 20px 20px 20px 20px;
     font-size: 20px;
     border-radius: 10px ;
-    /* border: 1px solid black; */
-
 }
 
 
@@ -67,9 +48,7 @@ body{
     font-size: 28px;
     
 }
-form{
-    /* width:400px; */
-}
+
 .input input{
     width:100%;
     font-size:20px;
@@ -97,19 +76,11 @@ button{
     width: 100%;
     
 }
-.radio .value{
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
-    
-
-}
-
 .radio input{
     transform: scale(1.5);
 
 }
 button:hover{
-    /* background-color:white; */
     color: #eeeeee;
     transform: scale(.98);
 
@@ -192,51 +163,24 @@ button:hover{
 
     
   }
-/*  */
-  /* .input #email{
-    display: block;
-    width: 200px;
-  }
-  .input #phoneno{
-    width: 200px;
-    display: block;
-  } */
-
-
-
 @media (max-width: 767px) {
 
 
     .regform{ 
-      /* position: absolute;
-      top: 50%;
-      left: 50%; */
-    
         width: 300px;
         background-color:white;
-
-    
         margin: 40px auto ;
         color:black;
         padding: 20px 20px 20px 20px;
         font-size: 15px;
-        /* border-radius: 30px ; */
-        /* border: 1px solid black; */
-        
     }
     .regformf{
       width: 300px;
         background-color:white;
-
-    
         margin: 40px auto ;
         color:black;
         padding: 20px 20px 20px 20px;
         font-size: 15px;
-        /* border-radius: 30px ; */
-        /* border: 1px solid black; */
-        
-
     }
     .logo{
         text-align: center;
@@ -249,9 +193,6 @@ button:hover{
         text-align: center;
         font-size: 22px;
         
-    }
-    #signin-up{
-      /* font-size: 16px; */
     }
     button{
       font-size: 16px;
@@ -266,8 +207,6 @@ button:hover{
         width: 300px;
       }
 }
-
-
 .error {
   display: flex;
   align-items: center;
@@ -276,7 +215,4 @@ button:hover{
   font-weight: 400;
   color: #d93025;
   
-}
-h1{
-  /* font-size: 29px; */
 }

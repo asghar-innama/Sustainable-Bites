@@ -6,10 +6,6 @@
     font-family: 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, Helvetica,
       sans-serif;
-    /* -webkit-font-smoothing: antialiased; */
-    /* -moz-osx-font-smoothing: grayscale; */
-      /* background-color: rgba(152, 243, 208, 0.5); */
-      /* height: 100%; */
       margin: 0;
   }
   
@@ -100,32 +96,7 @@
         width: 600px;
         height:500px ;
       }
-      
-      /* img{
-        visibility: hidden;
-      }
-      .img{
-        width: 740px;
-        height: 560px;
-        background:url('chitti.jpeg')no-repeat;
-      background-size: cover;
-     margin: auto;
-      place-items:center;
-    
-
-    
-    
-      } */
   } 
-  /* .chatwindow{
-    width:400px;
-    height: 400px;
-    background: color #f2f2f2;;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin: auto;
-
-  } */
   .chat-header {
     background-color: #4caf9d;
     color: white;
