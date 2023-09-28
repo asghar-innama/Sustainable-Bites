@@ -1,7 +1,4 @@
 <?php
-// session_start();
-// $connection=mysqli_connect("localhost:3307","root","");
-// $db=mysqli_select_db($connection,'demo');
 include '../connection.php';
 $msg=0;
 if(isset($_POST['sign']))
@@ -21,18 +18,19 @@ if(isset($_POST['sign']))
     if($num==1){
         echo "<h1><center>Account already exists</center></h1>";
     }
-    else {
-        $query="insert into admin(name,email,password,location,address) values('$username','$email','$pass','$location','$address')";
-        $query_run= mysqli_query($connection, $query);
-        if($query_run)
-        {
-            header("location:signin.php");
-        }
-        else
-        {
-            echo '<script type="text/javascript">alert("data not saved")</script>';
-        }
+    else{
+    
+    $query="insert into admin(name,email,password,location,address) values('$username','$email','$pass','$location','$address')";
+    $query_run= mysqli_query($connection, $query);
+    if($query_run)
+    {
+       header("location:signin.php");
     }
+    else{
+        echo '<script type="text/javascript">alert("data not saved")</script>';
+        
+    }
+}  
 }
 ?>
 
@@ -78,16 +76,16 @@ if(isset($_POST['sign']))
              </div>
             <div class="input-group">
                     <label for="address">Address</label>
-                    <textarea id="address" name="address" id="address" required/></textarea>
+                    <textarea id="address" name="address" id="address" required/></textarea>                        
                     </div>
             <div class="input-field">
                         <select id="district" name="district" style="padding:10px; padding-left: 20px;">
-                          <option value="chennai">Bangalore</option>
-                          <option value="kancheepuram">Mysuru</option>
-                          <option value="thiruvallur">Hebbal</option>
-                          <option value="vellore">Ramnagar</option>
+                          <option value="bangalore">Bangalore</option>
+                          <option value="mysuru">Mysuru</option>
+                          <option value="hebbal">Hebbal</option>
+                          <option value="ramanagr">Ramnagar</option>
                         </select> 
-                    </div>         
+            </div>
             <button type="submit" name="sign">Register</button>
             <div class="login-signup" >
                     <span class="text">Already a member?

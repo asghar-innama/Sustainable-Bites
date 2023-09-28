@@ -18,9 +18,6 @@ if(isset($_POST['signup']))
     $num=mysqli_num_rows($result);
     if($num==1){
         $acc=1;
-        // echo "<h1> already account is created </h1>";
-        // echo '<script type="text/javascript">alert("already Account is created")</script>';
-        // echo "<h1><center>Account already exists</center></h1>";
     }
     else{
     
@@ -28,22 +25,12 @@ if(isset($_POST['signup']))
     $query_run= mysqli_query($connection, $query);
     if($query_run)
     {
-        // $_SESSION['email']=$email;
-        // $_SESSION['name']=$row['name'];
-        // $_SESSION['gender']=$row['gender'];
-       
-        // header("location:#");
-        // echo "<h1><center>Account does not exists </center></h1>";
-        //  echo '<script type="text/javascript">alert("Account created successfully")</script>'; -->
     }
     else{
         echo '<script type="text/javascript">alert("data not saved")</script>';
         
     }
-}
-
-
-   
+}   
 }
  ?>
 
@@ -92,19 +79,8 @@ if(isset($_POST['signup']))
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
-<!-- 
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input type="checkbox" id="logCheck">
-                            <label for="logCheck" class="text">Remember me</label>
-                        </div>
-                        
-                        <a href="#" class="text">Forgot password?</a>
-                    </div> -->
-
                     <div class="input-field button">
                         <button type="submit" name="Login">Login</button>
-                        <!-- <input type="button" value="Login" name="Login"> -->
                     </div>
                 </form>
 
@@ -137,14 +113,12 @@ if(isset($_POST['signup']))
                     <div class="input-field">
                         <!-- <label for="district">District:</label> -->
                         <select id="district" name="district" style="padding:10px; padding-left: 20px;">
-                          <option value="chennai">Bangalore</option>
-                          <option value="kancheepuram">Mysuru</option>
-                          <option value="thiruvallur">Hebbal</option>
-                          <option value="vellore">Ramnagar</option>
+                          <option value="bangalore">Bangalore</option>
+                          <option value="mysuru">Mysuru</option>
+                          <option value="hebbal">Hebbal</option>
+                          <option value="ramnagar">Ramnagar</option>
                         </select> 
                         
-
-                        <!-- <input type="password" class="password" placeholder="Create a password" required> -->
                         <i class="uil uil-map-marker icon"></i>
                     </div>
                     <div class="input-field">
@@ -153,14 +127,6 @@ if(isset($_POST['signup']))
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
                    
-<!-- 
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input type="checkbox" id="termCon">
-                            <label for="termCon" class="text">I accepted all terms and conditions</label>
-                        </div>
-                    </div> -->
-
                     <div class="input-field button">
                        <button type="submit" name="signup">Signup</button>
                         <!-- <input type="button" value="signup" name="signup"> -->
@@ -189,7 +155,6 @@ if (isset($_POST['Login'])) {
   $password = $_POST['password'];
   $sanitized_emailid =  mysqli_real_escape_string($connection, $email);
   $sanitized_password =  mysqli_real_escape_string($connection, $password);
-  // $hash=password_hash($password,PASSWORD_DEFAULT);
 
   $sql = "select * from admin where email='$sanitized_emailid'";
   $result = mysqli_query($connection, $sql);
@@ -203,7 +168,6 @@ if (isset($_POST['Login'])) {
         header("location:admin.php");
       } else {
         $msg=1;
-        // echo "<h1><center> Login Failed incorrect password</center></h1>";
       }
     }
   } else {

@@ -13,24 +13,18 @@ if (isset($_POST['sign'])) {
   $num = mysqli_num_rows($result);
  
   if ($num == 1) {
-    while ($row = mysqli_fetch_assoc($result)) 
-    {
-      if (password_verify($sanitized_password, $row['password'])) 
-      {
+    while ($row = mysqli_fetch_assoc($result)) {
+      if (password_verify($sanitized_password, $row['password'])) {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $row['name'];
         $_SESSION['location'] = $row['location'];
         $_SESSION['Aid']=$row['Aid'];
         header("location:admin.php");
-      } 
-      else 
-      {
+      } else {
         $msg = 1;
-      }
+        }
     }
-  } 
-  else 
-  {
+  } else {
     echo "<h1><center>Account does not exists </center></h1>";
   }
 }

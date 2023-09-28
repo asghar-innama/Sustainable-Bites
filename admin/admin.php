@@ -1,8 +1,5 @@
-
 <?php
 ob_start(); 
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
  include("connect.php"); 
 if($_SESSION['name']==''){
 	header("location:signin.php");
@@ -22,7 +19,6 @@ if($_SESSION['name']==''){
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Admin Dashboard Panel</title> 
-    
 <?php
  $connection=mysqli_connect("localhost:3307","root","");
  $db=mysqli_select_db($connection,'demo');
@@ -40,14 +36,6 @@ if($_SESSION['name']==''){
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
-                </a></li> 
-                <li><a href="analytics.php">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
-                </a></li>-->
                 <li><a href="donate.php">
                     <i class="uil uil-heart"></i>
                     <span class="link-name">Donates</span>
@@ -60,10 +48,6 @@ if($_SESSION['name']==''){
                     <i class="uil uil-user"></i>
                     <span class="link-name">Profile</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li> -->
             </ul>
             
             <ul class="logout-mode">
@@ -79,15 +63,8 @@ if($_SESSION['name']==''){
         
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <!-- <p>Food Donate</p> -->
             <p  class ="logo" >Sustainable <b style="color: #06C167; ">Bites</b></p>
              <p class="user"></p>
-            <!-- <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div> -->
-            
-            <!--<img src="images/profile.jpg" alt="">-->
         </div>
 
         <div class="dash-content">
@@ -100,7 +77,6 @@ if($_SESSION['name']==''){
                 <div class="boxes">
                     <div class="box box1">
                         <i class="uil uil-user"></i>
-                        <!-- <i class="fa-solid fa-user"></i> -->
                         <span class="text">Total users</span>
                         <?php
                            $query="SELECT count(*) as count FROM  login";
@@ -108,29 +84,26 @@ if($_SESSION['name']==''){
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                         <!--span class="number">50,120</span-->
                     </div>
                     <div class="box box2">
                         <i class="uil uil-comments"></i>
                         <span class="text">Feedbacks</span>
-                        <?php
+                         <?php
                            $query="SELECT count(*) as count FROM  user_feedback";
                            $result=mysqli_query($connection, $query);
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                         <!--span class="number">20,120</span-->
                     </div>
                     <div class="box box3">
                         <i class="uil uil-heart"></i>
-                        <span class="text">Total donatees</span>
+                        <span class="text">Total doantes</span>
                          <?php
                            $query="SELECT count(*) as count FROM food_donations";
                            $result=mysqli_query($connection, $query);
                            $row=mysqli_fetch_assoc($result);
                          echo "<span class=\"number\">".$row['count']."</span>";
                         ?>
-                        <!--span class="number">10,120</span-->
                     </div>
                 </div>
             </div>

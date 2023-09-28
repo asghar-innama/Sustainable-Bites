@@ -1,7 +1,5 @@
 
 <?php
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
 include "../connection.php";
 include("connect.php"); 
 if($_SESSION['name']==''){
@@ -49,14 +47,6 @@ if($_SESSION['name']==''){
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
-                </a></li> 
-                <li><a href="analytics.php">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
-                </a></li>-->
                 <li><a href="#">
                     <i class="uil uil-heart"></i>
                     <span class="link-name">Donates</span>
@@ -69,10 +59,6 @@ if($_SESSION['name']==''){
                     <i class="uil uil-user"></i>
                     <span class="link-name">Profile</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li> -->
             </ul>
             
             <ul class="logout-mode">
@@ -91,19 +77,10 @@ if($_SESSION['name']==''){
             <!-- <p>Food Donate</p> -->
             <p  class ="logo" >Sustainable <b style="color: #06C167; ">Bites</b></p>
              <p class="user"></p>
-            <!-- <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div> -->
-            
-            <!--<img src="images/profile.jpg" alt="">-->
         </div>
         <br>
         <br>
         <br>
-    
-  
-
             <div class="activity">
                
             <div class="location">
@@ -112,25 +89,24 @@ if($_SESSION['name']==''){
              <label for="location" class="logo">Select Location:</label>
              <!-- <br> -->
             <select id="location" name="location">
-               <option value="chennai">Bangalore</option>
-               <option value="madurai">Hebbal</option>
-               <option value="coimbatore">Mysuru</option>
-        
+               <option value="bangalore">Bangalore</option>
+               <option value="hebbal">Hebbal</option>
+               <option value="mysuru">Mysuru</option>
+               <option value="ramanagr">Ramnagar</option>        
             </select>
                 <input type="submit" value="Get Details">
          </form>
          <br>
 
          <?php
-    
-    //Get the selected location from the form
+    // Get the selected location from the form
     if(isset($_POST['location'])) {
       $location = $_POST['location'];
       
       // Query the database for people in the selected location
-     $sql = "SELECT * FROM food_donations WHERE location='$location'";
-     $result=mysqli_query($connection, $sql);
-      //$result = $conn->query($sql);
+      $sql = "SELECT * FROM food_donations WHERE location='$location'";
+      $result=mysqli_query($connection, $sql);
+    //   $result = $conn->query($sql);
       
       // If there are results, display them in a table
       if ($result->num_rows > 0) {
@@ -154,21 +130,18 @@ if($_SESSION['name']==''){
 
         while($row = $result->fetch_assoc()) {
             echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td></tr>";
-
-        //   echo "<tr><td>" . $row["name"] . "</td><td>" . $row["phoneno"] . "</td><td>" . $row["location"] . "</td></tr>";
         }
         echo "</tbody></table></div>";
       } else {
         echo "<p>No results found.</p>";
       }
-      
-   
     }
   ?>
- </div>
+ </div>        
             </div>
     </section>
 
     <script src="admin.js"></script>
 </body>
 </html>
+

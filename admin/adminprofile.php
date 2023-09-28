@@ -1,10 +1,9 @@
 <?php
-include("connect.php"); 
+ include("connect.php"); 
 if($_SESSION['name']==''){
 	header("location:signin.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,14 +31,6 @@ if($_SESSION['name']==''){
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
-                </a></li> 
-                <li><a href="analytics.php">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
-                </a></li>-->
                 <li><a href="donate.php">
                     <i class="uil uil-heart"></i>
                     <span class="link-name">Donates</span>
@@ -52,20 +43,16 @@ if($_SESSION['name']==''){
                     <i class="uil uil-user"></i>
                     <span class="link-name">Profile</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li> -->
             </ul>
-            
             <ul class="logout-mode">
                 <li><a href="../logout.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
-                </a></li>  
+                </a></li>                
             </ul>
         </div>
     </nav>
+
     <section class="dashboard">
         
         <div class="top">
@@ -73,9 +60,12 @@ if($_SESSION['name']==''){
             <p  class ="logo" >Your <b style="color: #06C167; ">History</b></p>
              <p class="user"></p>
         </div>
-        <br><br><br>
+        <br>
+        <br>
+        <br>
         <div class="activity">
         <div class="table-container">
+         
          <div class="table-wrapper">
          <table class="table">
         <thead>
@@ -89,7 +79,6 @@ if($_SESSION['name']==''){
             <th>Quantity</th>
         </tr>
         </thead>
-         
          <?php
           // Define the SQL query to fetch unassigned orders
           $id=$_SESSION['Aid'];
@@ -97,7 +86,7 @@ if($_SESSION['name']==''){
           
           // Execute the query
           $result=mysqli_query($connection, $sql);
-          
+      
           // Check for errors
           if (!$result) {
               die("Error executing query: " . mysqli_error($conn));
@@ -108,22 +97,20 @@ if($_SESSION['name']==''){
           while ($row = mysqli_fetch_assoc($result)) {
               $data[] = $row;
           }
+    
+      
        ?> 
     
         </tbody>
-        
-        <?php foreach ($data as $row) 
-        { ?>
-        <?php    
-        echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
-        ?>
-        <?php } ?>
+        <?php foreach ($data as $row) { ?>
+        <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"food\">".$row['food']."</td><td data-label=\"category\">".$row['category']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Address\">".$row['address']."</td><td data-label=\"quantity\">".$row['quantity']."</td>";
+?>
+  <?php } ?>
     </table>
-    </div>
-    </div>
+         </div>
+                </div>
         </div>
     </section>
-
     <script src="admin.js"></script>
 </body>
 </html>

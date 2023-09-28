@@ -1,11 +1,30 @@
+
 <?php
 // $connection = mysqli_connect("localhost:3307", "root", "");
 // $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
  include("connect.php"); 
-if($_SESSION['name']=='')
-{
+if($_SESSION['name']==''){
 	header("location:signin.php");
+}
+$emailid= $_SESSION['email'];
+$connection=mysqli_connect("localhost:3307","root","");
+$db=mysqli_select_db($connection,'demo');
+if(isset($_POST['submit']))
+{
+    $name=mysqli_real_escape_string($connection, $_POST['name']);
+    $email=mysqli_real_escape_string($connection, $_POST['email']);
+    $message=mysqli_real_escape_string($connection, $_POST['message']);
+    $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
+    $query_run= mysqli_query($connection, $query);
+    if($query_run)
+    {
+        echo '<script type="text/javascript">alert("data saved")</script>';
+        //header("location:delivery.html");
+    }
+    else{
+        echo '<script type="text/javascript">alert("data not saved")</script>';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -16,10 +35,13 @@ if($_SESSION['name']=='')
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="admin.css">
+     
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
     <title>Admin Dashboard Panel</title> 
     
 <?php
@@ -33,6 +55,7 @@ if($_SESSION['name']=='')
             <div class="logo-image">
                 <!--<img src="images/logo.png" alt="">-->
             </div>
+
             <span class="logo_name">ADMIN</span>
         </div>
 
@@ -42,14 +65,6 @@ if($_SESSION['name']=='')
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dahsboard</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-files-landscapes"></i>
-                    <span class="link-name">Content</span>
-                </a></li> 
-                <li><a href="analytics.php">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Analytics</span>
-                </a></li>-->
                 <li><a href="donate.php">
                     <i class="uil uil-heart"></i>
                     <span class="link-name">Donates</span>
@@ -62,10 +77,6 @@ if($_SESSION['name']=='')
                     <i class="uil uil-user"></i>
                     <span class="link-name">Profile</span>
                 </a></li>
-                <!-- <li><a href="#">
-                    <i class="uil uil-share"></i>
-                    <span class="link-name">Share</span>
-                </a></li> -->
             </ul>
             
             <ul class="logout-mode">
@@ -84,52 +95,40 @@ if($_SESSION['name']=='')
             <!-- <p>Food Donate</p> -->
             <p  class ="logo" >Feed<b style="color: #06C167; ">back</b></p>
              <p class="user"></p>
-            <!-- <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div> -->
-            
-            <!--<img src="images/profile.jpg" alt="">-->
         </div>
        <br>
        <br>
        <br>
-
-            <div class="activity">
-              
+            <div class="activity">   
                 <div class="table-container">
-         
-         <div class="table-wrapper">
-        <table class="table">
-        <thead>
-        <tr>
-            <th>name</th>
-            <th>email</th>
-            <th>message</th> 
-        </tr>
-        </thead>
-       <tbody>
-   
-         <?php
-    
-        $query="select * from user_feedback ";
-        $result=mysqli_query($connection, $query);
-        if($result==true){
-            while($row=mysqli_fetch_assoc($result)){
-                echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"email\">".$row['email']."</td><td data-label=\"message\">".$row['message']."</td></tr>";
-
-             }
-          }
-       ?> 
-    
-        </tbody>
-    </table>
-         </div>
-                </div>
+                    <div class="table-wrapper">
+                        <table class="table">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>message</th> 
+                        </tr>
+                        </thead>
+                    <tbody>
                 
-         
-            
-        </div>
+                        <?php
+                    
+                        $query="select * from user_feedback ";
+                        $result=mysqli_query($connection, $query);
+                        if($result==true){
+                            while($row=mysqli_fetch_assoc($result)){
+                                echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"email\">".$row['email']."</td><td data-label=\"message\">".$row['message']."</td></tr>";
+
+                            }
+                        }
+                    ?> 
+                    
+                        </tbody>
+                    </table>
+                    </div>
+                </div>   
+            </div>
     </section>
 
     <script src="admin.js"></script>
