@@ -34,7 +34,7 @@ if($_SESSION['name']==''){
             <ul class="nav-links">
                 <li><a href="#">
                     <i class="uil uil-estate"></i>
-                    <span class="link-name">Dahsboard</span>
+                    <span class="link-name">Dashboard</span>
                 </a></li>
                 <li><a href="donate.php">
                     <i class="uil uil-heart"></i>
@@ -97,7 +97,7 @@ if($_SESSION['name']==''){
                     </div>
                     <div class="box box3">
                         <i class="uil uil-heart"></i>
-                        <span class="text">Total doantes</span>
+                        <span class="text">Total donates</span>
                          <?php
                            $query="SELECT count(*) as count FROM food_donations";
                            $result=mysqli_query($connection, $query);
