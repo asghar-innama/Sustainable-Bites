@@ -116,7 +116,7 @@ if(isset($_POST['signup']))
                           <option value="bangalore">Bangalore</option>
                           <option value="mysuru">Mysuru</option>
                           <option value="hebbal">Hebbal</option>
-                          <option value="ramnagar">Ramnagar</option>
+                          <option value="ramnagar">Ramanagara</option>
                         </select> 
                         
                         <i class="uil uil-map-marker icon"></i>

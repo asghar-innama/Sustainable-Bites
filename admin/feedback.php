@@ -63,7 +63,7 @@ if(isset($_POST['submit']))
             <ul class="nav-links">
                 <li><a href="admin.php">
                     <i class="uil uil-estate"></i>
-                    <span class="link-name">Dahsboard</span>
+                    <span class="link-name">Dashboard</span>
                 </a></li>
                 <li><a href="donate.php">
                     <i class="uil uil-heart"></i>

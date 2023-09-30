@@ -25,7 +25,7 @@ if (isset($_POST['sign'])) {
         }
     }
   } else {
-    echo "<h1><center>Account does not exists </center></h1>";
+    echo "<h1><center>Account does not exist </center></h1>";
   }
 }
 ?>

@@ -83,7 +83,7 @@ if(isset($_POST['sign']))
                           <option value="bangalore">Bangalore</option>
                           <option value="mysuru">Mysuru</option>
                           <option value="hebbal">Hebbal</option>
-                          <option value="ramanagr">Ramnagar</option>
+                          <option value="ramanagr">Ramanagara</option>
                         </select> 
             </div>
             <button type="submit" name="sign">Register</button>
