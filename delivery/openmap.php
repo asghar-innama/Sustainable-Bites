@@ -72,24 +72,10 @@
     <div id="city-name"></div>
     <div id="address"></div>
     <br>
-    <!-- <h3>Ip address details</h3>
-    <p>Your IP address : <span id="ip"></span></p>
-    <table style="margin:auto">
-
-  <tr>
-    <td>Ip version</td>  
-    <td>:</td>
-    <td id="version"></td>
-  </tr>
-    <tr><td>your country </td>  
-    <td>:</td>
-    <td id="country"></td>
-  </tr>
-  </table> -->
 </div>
 
 
-    <!-- Load the LeafletJS library and JavaScript code for displaying the map and user's location -->
+    <!-- Load the LeafletJS library and JavaScript code for displaying the map and user's location 
    
     <script>
       // Initialize the map and user's location marker
@@ -156,7 +142,7 @@
           alert("Error: The Geolocation service failed.");
         });
       }
-    </script>
+    </script-->
 
     <script>
       function getVisitorLocation() {
