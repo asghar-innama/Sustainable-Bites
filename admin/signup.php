@@ -80,10 +80,10 @@ if(isset($_POST['sign']))
                     </div>
             <div class="input-field">
                         <select id="district" name="district" style="padding:10px; padding-left: 20px;">
-                          <option value="bangalore">Bangalore</option>
-                          <option value="mysuru">Mysuru</option>
-                          <option value="hebbal">Hebbal</option>
-                          <option value="ramanagr">Ramnagar</option>
+                          <option value="chennai">Bangalore</option>
+                          <option value="kancheepuram">Mysuru</option>
+                          <option value="thiruvallur">Hebbal</option>
+                          <option value="vellore">Ramnagar</option>
                         </select> 
             </div>
             <button type="submit" name="sign">Register</button>

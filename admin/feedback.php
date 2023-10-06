@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     $name=mysqli_real_escape_string($connection, $_POST['name']);
     $email=mysqli_real_escape_string($connection, $_POST['email']);
     $message=mysqli_real_escape_string($connection, $_POST['message']);
-    $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
+    $query="INSERT INTO 'user_feedback'('name','email','message') VALUES('$name','$email','$message')";
     $query_run= mysqli_query($connection, $query);
     if($query_run)
     {
