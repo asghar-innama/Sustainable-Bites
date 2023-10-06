@@ -44,7 +44,7 @@ if (isset($_POST['sign'])) {
 
 </head>
 
-<body>
+<body style="background-color: #FFD700;">
     <style>
     .uil {
 

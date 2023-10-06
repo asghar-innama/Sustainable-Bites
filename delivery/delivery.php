@@ -81,7 +81,7 @@ $id=$_SESSION['Did'];
             margin-top: 50px;
         }
         a{
-            /* text-decoration: underline; */
+            background-color: #FFD700; 
         }
         @media (max-width: 767px) {
             .itm{
@@ -160,17 +160,17 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
 ?>
 <div class="log">
 <!-- <button type="submit" name="food" onclick="">My orders</button> -->
-<a href="deliverymyord.php">My Orders</a>
+<a href="deliverymyord.php" style="background-color: #FFD700;">My Orders</a>
 
 </div>
 
 <!-- Display the orders in an HTML table -->
-<div class="table-container">
+<div class="table-container" >
          <!-- <p id="heading">donated</p> -->
          <div class="table-wrapper">
         <table class="table">
         <thead>
-        <tr>
+        <tr style="background-color: #FFD700;">
             <th >Name</th>
             <!-- <th>food</th> -->
             <!-- <th>Category</th> -->

@@ -43,7 +43,7 @@ if(isset($_POST['sign']))
     <link rel="stylesheet" href="../loginstyle.css">
     
   </head>
-  <body>
+  <body style="background-color: #FFD700;">
     <div class="center">
       <h1>Register</h1>
       <form method="post" action=" ">

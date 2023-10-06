@@ -41,7 +41,7 @@ if (isset($_POST['sign'])) {
     <title>Login Form</title>
     <link rel="stylesheet" href="deliverycss.css">
   </head>
-  <body>
+  <body style="background-color: #FFD700;">
     <div class="center">
       <h1>Delivery Login</h1>
       <form method="post">

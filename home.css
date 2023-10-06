@@ -191,7 +191,7 @@ and (min-device-width : 1200px)
 {
   display: inline-block;
   font-size: 1em;
-  background: #111;
+  background: #FFD700;
   padding: 10px 30px;
   text-transform: uppercase;
   text-decoration: none;
@@ -212,7 +212,7 @@ and (min-device-width : 1200px)
 
 /* footer */
 .footer {
-  background-color: #414141;
+  background-color: #FFD700;
   width: 100%;
   text-align: left;
   font-family: sans-serif;
@@ -364,7 +364,7 @@ and (min-device-width : 1200px)
     
   }
 
-/* social 
+/* social h
 .sociallist{
 
 }*/

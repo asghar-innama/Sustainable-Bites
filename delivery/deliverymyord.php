@@ -58,7 +58,7 @@ $id=$_SESSION['Did'];
             text-align: center; font-size: 28PX;color: black; 
         }
         a{
-            /* text-decoration: underline; */
+            background-color: #FFD700;        
         }
         @media (max-width: 767px) {
             .itm{
@@ -139,7 +139,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
          <div class="table-wrapper">
         <table class="table">
         <thead>
-        <tr>
+        <tr  style="background-color: #FFD700;">
             <th >Name</th>
             <!-- <th>food</th> -->
             <!-- <th>Category</th> -->
