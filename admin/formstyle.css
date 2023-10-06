@@ -76,7 +76,7 @@ h1{
 }
 
 .input-group.success input{
-    border-color: #FFD700;
+    border-color: greenyellow;
 }
 .login-signup{
     /* margin-top: 30px; */
