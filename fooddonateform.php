@@ -43,11 +43,7 @@ if(isset($_POST['submit']))
     <title>Food donate</title>
     <link rel="stylesheet" href="loginstyle.css">
 </head>
-<<<<<<< Updated upstream
 <body style="    background-color: #FFD700;">
-=======
-<body style="background-color: #FFD700;">
->>>>>>> Stashed changes
     <div class="container">
         <div class="regformf" >
     <form action="" method="post">
