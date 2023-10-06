@@ -146,7 +146,7 @@ input[type="text"], input[type="email"], textarea {
 
 /* Style for the submit button */
 input[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #FFD700;
   color: white;
   padding: 12px 20px;
   border: none;

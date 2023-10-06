@@ -109,19 +109,17 @@ if(isset($_POST['submit']))
         <div class="input">
         <label for="location"></label>
         <label for="district">District:</label>
-<select id="district" name="district" style="padding:10px;">
-  <option value="chennai">Bangalore</option>
-  <option value="kancheepuram">Mysuru</option>
-  <option value="thiruvallur">Hebbal</option>
-  <option value="vellore">Ramanagara</option>
-</select> 
-
+            <select id="district" name="district" style="padding:10px;">
+              <option value="chennai">Bangalore</option>
+              <option value="kancheepuram">Mysuru</option>
+              <option value="thiruvallur">Hebbal</option>
+              <option value="vellore">Ramanagara</option>
+            </select> 
         <label for="address" style="padding-left: 10px;">Address:</label>
         <input type="text" id="address" name="address" required/><br>
         </div>
         <div class="btn">
             <button type="submit" name="submit"> submit</button>
-     
         </div>
      </form>
      </div>

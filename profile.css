@@ -35,7 +35,7 @@
 th{
     position:sticky;
     top:0px;
-    background-color: #37db8c;  
+    background-color: #FFD700;  
 }
 .table-wrapper{
     max-height: 130px;
@@ -90,7 +90,7 @@ th{
     text-align: center;
     align-items: center; 
     text-decoration: underline 5px;
-    text-decoration-color: #06C167;
+    text-decoration-color: #FFD700;
    }
 
 
