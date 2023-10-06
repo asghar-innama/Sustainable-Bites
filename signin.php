@@ -56,7 +56,7 @@ if (isset($_POST['sign'])) {
 
             <form action=" " method="post">
 
-                <p class="logo" style="">Sustainable <b style="color:#06C167; ">Bites</b></p>
+                <p class="logo" style="">Sustainable <b style="color:#FFD700; ">Bites</b></p>
                 <p id="heading" style="padding-left: 1px;"> Welcome back ! <img src="" alt=""> </p>
 
                 <div class="input">
