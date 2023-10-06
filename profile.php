@@ -20,7 +20,7 @@ if($_SESSION['name']==''){
 
 <body>
 <header>
-        <div class="logo">Sustainable <b style="color: #06C167;">Bites</b></div>
+        <div class="logo">Sustainable <b style="color: #FFD700;">Bites</b></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -50,7 +50,7 @@ if($_SESSION['name']==''){
               <div class="info" style="padding-left:10px;">
               <p style="">Name  :<?php echo"". $_SESSION['name'] ;?> </p><br>
               <p style="">Email :<?php echo"". $_SESSION['email'];?> </p><br>
-              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #06C167; color: white;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
+              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #FFD700; color: white;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
               </div>
               <br>
               <br>   

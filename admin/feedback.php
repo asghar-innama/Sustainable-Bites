@@ -94,7 +94,7 @@ if(isset($_POST['submit']))
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
             <!-- <p>Food Donate</p> -->
-            <p  class ="logo" >Feed<b style="color: #06C167; ">back</b></p>
+            <p  class ="logo" >Feed<b style="color: #FFD700; ">back</b></p>
              <p class="user"></p>
         </div>
        <br>

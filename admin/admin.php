@@ -63,7 +63,7 @@ if($_SESSION['name']==''){
         
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <p  class ="logo" >Sustainable <b style="color: #06C167; ">Bites</b></p>
+            <p  class ="logo" >Sustainable <b style="color: #FFD700; ">Bites</b></p>
              <p class="user"></p>
         </div>
 

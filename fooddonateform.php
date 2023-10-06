@@ -43,11 +43,11 @@ if(isset($_POST['submit']))
     <title>Food donate</title>
     <link rel="stylesheet" href="loginstyle.css">
 </head>
-<body style="    background-color: #06C167;">
+<body style="    background-color: #FFD700;">
     <div class="container">
         <div class="regformf" >
     <form action="" method="post">
-        <p class="logo">Sustainable <b style="color: #06C167; ">Bites</b></p>
+        <p class="logo">Sustainable <b style="color: #FFD700; ">Bites</b></p>
         
        <div class="input">
         <label for="foodname"  > Food Name:</label>

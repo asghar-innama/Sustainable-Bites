@@ -58,7 +58,7 @@ if(isset($_POST['signup']))
             <div class="form login">
                 <?php
                 if($msg==1){
-                    echo '<p ><center style=\"color:#06C167;\">Account created successfully</center></p>';
+                    echo '<p ><center style=\"color:#FFD700;\">Account created successfully</center></p>';
                 }
                 ?>
             <?php
@@ -95,7 +95,7 @@ if(isset($_POST['signup']))
             <div class="form signup">
                 <?php
                 if($msg==1){
-                  echo '<p ><center style=\"color:crimson;\">Account already exists</center></p>';
+                  echo '<p ><center style=\"color:#FFD700;\">Account already exists</center></p>';
                 }
                 ?>
                 <span class="title">Registration</span>

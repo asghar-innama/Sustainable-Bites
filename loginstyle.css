@@ -168,7 +168,7 @@ button:hover{
 
     .regform{ 
         width: 300px;
-        background-color:white;
+        background-color:#FFD700;
         margin: 40px auto ;
         color:black;
         padding: 20px 20px 20px 20px;
@@ -176,7 +176,7 @@ button:hover{
     }
     .regformf{
       width: 300px;
-        background-color:white;
+        background-color:#FFD700;
         margin: 40px auto ;
         color:black;
         padding: 20px 20px 20px 20px;
