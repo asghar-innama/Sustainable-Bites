@@ -45,7 +45,7 @@ if($_SESSION['name']==''){
             <ul class="nav-links">
                 <li><a href="admin.php">
                     <i class="uil uil-estate"></i>
-                    <span class="link-name">Dahsboard</span>
+                    <span class="link-name">Dashboard</span>
                 </a></li>
                 <li><a href="#">
                     <i class="uil uil-heart"></i>
@@ -92,7 +92,7 @@ if($_SESSION['name']==''){
                <option value="bangalore">Bangalore</option>
                <option value="hebbal">Hebbal</option>
                <option value="mysuru">Mysuru</option>
-               <option value="ramanagr">Ramnagar</option>        
+               <option value="ramanagr">Ramanagara</option>        
             </select>
                 <input type="submit" value="Get Details">
          </form>

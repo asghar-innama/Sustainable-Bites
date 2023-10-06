@@ -113,7 +113,7 @@ if(isset($_POST['submit']))
   <option value="chennai">Bangalore</option>
   <option value="kancheepuram">Mysuru</option>
   <option value="thiruvallur">Hebbal</option>
-  <option value="vellore">Ramnagar</option>
+  <option value="vellore">Ramanagara</option>
 </select> 
 
         <label for="address" style="padding-left: 10px;">Address:</label>
