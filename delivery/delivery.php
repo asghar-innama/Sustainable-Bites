@@ -98,7 +98,7 @@ $id=$_SESSION['Did'];
 
         <div class="itm" >
 
-            <img src="../img/delivery.gif" alt="" width="400" height="400"> 
+            <img src="../img/rider.gif" alt="" width="400" height="400"> 
           
         </div>
         <!-- <h2><center>your Location : <?php echo"$city" ?></center></h2> -->
