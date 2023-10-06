@@ -27,7 +27,7 @@ body{
 .center h1{
   text-align: center;
   padding: 20px 0;
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #FFD700;
 }
 .center form{
   padding: 0 40px;
@@ -107,7 +107,7 @@ input[type="submit"]{
   outline: none;
 }
 input[type="submit"]:hover{
-  border-color: #FFD700;
+  border-color: #2691d9;
   transition: .5s;
 }
 .signup_link{

@@ -569,7 +569,7 @@ table {
   
   button, input{
     font-size: 18px;
-  background:#06C167;
+  background:#FFD700;
   padding: 5px;
   /* text-transform: uppercase; */
   text-decoration: none;
@@ -578,7 +578,7 @@ table {
   color: #fff;
   letter-spacing: 2px;
   transition: 0.2s;
-  border: #06C167;
+  border: #FFD700;
   }
   select{
     font-size: 18px;
