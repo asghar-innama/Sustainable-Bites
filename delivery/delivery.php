@@ -62,12 +62,6 @@ $id=$_SESSION['Did'];
         }
     </script>
 <?php
-
-// echo var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip=103.113.190.19')));
-// echo "Your city: {$city}\n";
-
-// $city = "<script language=javascript> document.write(geoplugin_city());</script>"; 
-// $scity=$city;
 ?>
     <style>
         .itm{
@@ -81,7 +75,10 @@ $id=$_SESSION['Did'];
             margin-right: auto;
         }
         p{
-            text-align: center; font-size: 30PX;color: black; margin-top: 50px;
+            text-align: center; 
+            font-size: 30PX;
+            color: black; 
+            margin-top: 50px;
         }
         a{
             /* text-decoration: underline; */
@@ -118,8 +115,6 @@ LEFT JOIN admin ad ON fd.assigned_to = ad.Aid where assigned_to IS NOT NULL and 
 
 // Execute the query
 $result=mysqli_query($connection, $sql);
-
-
 
 // Check for errors
 if (!$result) {
@@ -165,10 +160,9 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
 ?>
 <div class="log">
 <!-- <button type="submit" name="food" onclick="">My orders</button> -->
-<a href="deliverymyord.php">My orders</a>
+<a href="deliverymyord.php">My Orders</a>
 
 </div>
-  
 
 <!-- Display the orders in an HTML table -->
 <div class="table-container">
@@ -180,14 +174,11 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
             <th >Name</th>
             <!-- <th>food</th> -->
             <!-- <th>Category</th> -->
-            <th>phoneno</th>
+            <th>Phoneno</th>
             <th>date/time</th>
             <th>Pickup address</th>
             <th>Delivery Address</th>
-            <th>Action</th>
-         
-          
-           
+            <th>Action</th>     
         </tr>
         </thead>
        <tbody>
@@ -195,7 +186,6 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
         <?php foreach ($data as $row) { ?>
         <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Pickup Address\">".$row['From_address']."</td><td data-label=\"Delivery Address\">".$row['To_address']."</td>";
 ?>
-        
             <!-- <td><?= $row['Fid'] ?></td>
             <td><?= $row['name'] ?></td>
             <td><?= $row['address'] ?></td> -->

@@ -66,7 +66,7 @@ if (isset($_POST['sign'])) {
         <!-- <div class="pass">Forgot Password?</div> -->
         <input type="submit" value="Login" name="sign">
         <div class="signup_link">
-          Not a member? <a href="deliverysignup.php">Signup</a>
+          Not a member? <a href="deliverysignup.php">Register</a>
         </div>
       </form>
     </div>

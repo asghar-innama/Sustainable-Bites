@@ -8,8 +8,6 @@ if($_SESSION['name']==''){
 $name=$_SESSION['name'];
 $id=$_SESSION['Did'];
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,8 +92,6 @@ LEFT JOIN admin ad ON fd.assigned_to = ad.Aid where delivery_by='$id';
 // Execute the query
 $result=mysqli_query($connection, $sql);
 
-
-
 // Check for errors
 if (!$result) {
     die("Error executing query: " . mysqli_error($conn));
@@ -128,7 +124,6 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
 }
 // mysqli_close($conn);
 
-
 ?>
 <div class="log">
 <!-- <button type="submit" name="food" onclick="">My orders</button> -->
@@ -148,14 +143,10 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
             <th >Name</th>
             <!-- <th>food</th> -->
             <!-- <th>Category</th> -->
-            <th>phoneno</th>
-            <th>date/time</th>
+            <th>Phoneno</th>
+            <th>Date/time</th>
             <th>Pickup address</th>
             <th>Delivery address</th>
-            <!-- <th>Orders</th> -->
-         
-          
-           
         </tr>
         </thead>
        <tbody>
@@ -178,13 +169,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
         <?php } ?>
     </tbody>
 </table>
-
-            </div>
-
-        
-     
-        
-
+                </div>
    <br>
    <br>
 </body>

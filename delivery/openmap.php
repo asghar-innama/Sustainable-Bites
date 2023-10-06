@@ -32,7 +32,7 @@
         text-align: center;
       }
       .nav-bar a{
-        background:#06C167;
+        background:#FFD700;
       }
       @media screen and (max-width: 600px) {
        #map-container {
@@ -174,9 +174,6 @@
 // call function to get visitor's location information
 getVisitorLocation();
     </script>
-    
-
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
   </body>
 </html>

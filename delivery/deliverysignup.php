@@ -40,7 +40,7 @@ if(isset($_POST['sign']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Animated Login Form </title>
-    <link rel="stylesheet" href="deliverycss.css">
+    <link rel="stylesheet" href="../loginstyle.css">
     
   </head>
   <body>
@@ -73,7 +73,7 @@ if(isset($_POST['sign']))
           <br>
         <input type="submit" name="sign" value="Register">
         <div class="signup_link">
-          Alredy a member? <a href="deliverylogin.php">Sigin</a>
+          Alredy a member? <a href="deliverylogin.php">Login</a>
         </div>
       </form>
     </div>
