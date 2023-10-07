@@ -1,3 +1,32 @@
+<?php
+$connection = mysqli_connect("localhost:3307", "root", "");
+$db = mysqli_select_db($connection, 'demo');
+include '../connection.php';
+ include("connect.php"); 
+if($_SESSION['name']==''){
+	header("location:signin.php");
+}
+$emailid= $_SESSION['email'];
+$connection=mysqli_connect("localhost:3307","root","");
+$db=mysqli_select_db($connection,'demo');
+if(isset($_POST['submit']))
+{
+    $name=mysqli_real_escape_string($connection, $_POST['name']);
+    $email=mysqli_real_escape_string($connection, $_POST['email']);
+    $message=mysqli_real_escape_string($connection, $_POST['message']);
+    $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
+    $query_run= mysqli_query($connection, $query);
+    if($query_run)
+    {
+        echo '<script type="text/javascript">alert("data saved")</script>';
+        //header("location:delivery.html");
+    }
+    else{
+        echo '<script type="text/javascript">alert("data not saved")</script>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +51,7 @@
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li> <a href="contact.html" class="active">Contact</a> </li>
+        <li> <a href="contact.php" class="active">Contact</a> </li>
         <li><a href="profile.php">Profile</a></li>
       </ul>
     </nav>

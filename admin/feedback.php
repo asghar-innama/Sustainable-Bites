@@ -8,7 +8,7 @@ include '../connection.php';
 if($_SESSION['name']==''){
 	header("location:signin.php");
 }
-$emailid= $_SESSION['email'];
+/*$emailid= $_SESSION['email'];
 $connection=mysqli_connect("localhost:3307","root","");
 $db=mysqli_select_db($connection,'demo');
 if(isset($_POST['submit']))
@@ -26,7 +26,7 @@ if(isset($_POST['submit']))
     else{
         echo '<script type="text/javascript">alert("data not saved")</script>';
     }
-}
+}*/
 ?>
 <!DOCTYPE html>
 
@@ -119,7 +119,10 @@ if(isset($_POST['submit']))
                         $result=mysqli_query($connection, $query);
                         if($result==true){
                             while($row=mysqli_fetch_assoc($result)){
-                                echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"email\">".$row['email']."</td><td data-label=\"message\">".$row['message']."</td></tr>";
+                                echo "<tr><td data-label=\"name\">".$row['name']."
+                                </td><td data-label=\"email\">".$row['email']."
+                                </td><td data-label=\"message\">".$row['message']."
+                                </td></tr>";
 
                             }
                         }
