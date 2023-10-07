@@ -81,7 +81,8 @@ $id=$_SESSION['Did'];
             margin-top: 50px;
         }
         a{
-            background-color: #FFD700; 
+            background-color: #FFD700;
+            color: black; 
         }
         @media (max-width: 767px) {
             .itm{

@@ -94,7 +94,7 @@ if($_SESSION['name']==''){
                <option value="mysuru">Mysuru</option>
                <option value="ramanagr">Ramanagara</option>        
             </select>
-                <input type="submit" value="Get Details">
+                <input type="submit" value="Get Details" style="color:black;">
          </form>
          <br>
 

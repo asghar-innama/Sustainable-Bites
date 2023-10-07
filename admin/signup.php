@@ -89,7 +89,7 @@ if(isset($_POST['sign']))
             <button type="submit" name="sign">Register</button>
             <div class="login-signup" >
                     <span class="text">Already a member?
-                        <a href="signin.php" class="text login-link">Login Now</a>
+                        <a href="signin.php" class="text login-link" style="color:black;">Login Now</a>
                     </span>
                 </div>
         </form>

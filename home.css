@@ -218,6 +218,7 @@ and (min-device-width : 1200px)
   font-family: sans-serif;
   font-weight: bold;
   font-size: 16px;
+  color: black;
   padding: 50px;
   margin-top: 20px;
 }
@@ -239,7 +240,7 @@ and (min-device-width : 1200px)
 
 .footer .about {
   line-height: 20px;
-  color: #ffffff;
+  color: black;
   font-size: 18px;
   font-weight: normal;
   margin: 0;
@@ -247,7 +248,7 @@ and (min-device-width : 1200px)
 
 .footer .about span {
   display: block;
-  color: #ffffff;
+  color: black;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -263,14 +264,14 @@ and (min-device-width : 1200px)
 
 .footer .footer-center p {
   display: inline-block;
-  color: #ffffff;
+  color: black;
   vertical-align: middle;
   margin: 0;
 }
 
 .footer .footer-center p span {
   display: block;
-  color: #ffffff;
+  color: black;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -289,18 +290,18 @@ and (min-device-width : 1200px)
 }
 
 .footer h2 {
-  color: #ffffff;
+  color: black;
   font-size: 36px;
   font-weight: normal;
   margin: 0;
 }
 
 .footer h2 span {
-  color: #FFD700;
+  color: black;
 }
 
 .footer .menu {
-  color: #ffffff;
+  color: black;
   margin: 20px 0 12px;
   padding: 0;
 }
@@ -373,6 +374,7 @@ and (min-device-width : 1200px)
   
   position: absolute;
   display: flex;
+  color: black;
   justify-content: center;
   align-items: center;
 }

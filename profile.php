@@ -43,26 +43,26 @@ if($_SESSION['name']==''){
         }
     </script>
     <div class="profile">
-        <div class="profilebox" style="">
+        <div class="profilebox" style="color:black;">
           
-            <p class="headingline" style="text-align: left;font-size:30px;"> <img src="" alt="" style="width:40px; height:  height: 25px;; padding-right: 10px; position: relative;" >Profile</p>
+            <p class="headingline" style="text-align: left;font-size:30px; color:black;"> <img src="" alt="" style="width:40px; height:  height: 25px;; padding-right: 10px; position: relative;" >Profile</p>
               <br>
               <div class="info" style="padding-left:10px;">
               <p style="">Name  :<?php echo"". $_SESSION['name'] ;?> </p><br>
               <p style="">Email :<?php echo"". $_SESSION['email'];?> </p><br>
-              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #FFD700; color: white;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
+              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #FFD700; color: black;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
               </div>
               <br>
               <br>   
          <hr>
          <br>
-         <p class="heading">Your donations</p>
+         <p class="heading" style="color:black;">Your donations</p>
          <div class="table-container">
          <!-- <p id="heading">donated</p> -->
          <div class="table-wrapper">
         <table class="table">
         <thead>
-        <tr>
+        <tr style="color:black;">
             <th>Food</th>
             <th>Type</th>
             <th>Category</th>

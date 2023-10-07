@@ -58,7 +58,9 @@ $id=$_SESSION['Did'];
             text-align: center; font-size: 28PX;color: black; 
         }
         a{
-            background-color: #FFD700;        
+            background-color: #FFD700;  
+            color: black;
+                  
         }
         @media (max-width: 767px) {
             .itm{
