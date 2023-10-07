@@ -40,7 +40,7 @@ if(isset($_POST['sign']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Animated Login Form </title>
-    <link rel="stylesheet" href="../loginstyle.css">
+    <link rel="stylesheet" href="deliverycss.css">
     
   </head>
   <body style="background-color: #FFD700;">
