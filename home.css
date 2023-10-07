@@ -314,7 +314,7 @@ and (min-device-width : 1200px)
 }
 
 .footer .menu a:hover {
-  color: #FFD700;
+  color: red;
 }
 
 .footer .name {
