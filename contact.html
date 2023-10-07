@@ -1,4 +1,4 @@
-<?php
+<!--?php
 $connection = mysqli_connect("localhost:3307", "root", "");
 $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
         echo '<script type="text/javascript">alert("data not saved")</script>';
     }
 }
-?>
+?-->
 
 <!DOCTYPE html>
 <html>
@@ -51,7 +51,7 @@ if(isset($_POST['submit']))
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li> <a href="contact.php" class="active">Contact</a> </li>
+        <li> <a href="contact.html" class="active">Contact</a> </li>
         <li><a href="profile.php">Profile</a></li>
       </ul>
     </nav>

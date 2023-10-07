@@ -30,7 +30,7 @@ if($_SESSION['name']==''){
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="about.html" >About</a></li>
-                <li><a href="contact.php"  >Contact</a></li>
+                <li><a href="contact.html"  >Contact</a></li>
                 <li><a href="profile.php"  class="active">Profile</a></li>
             </ul>
         </nav>
