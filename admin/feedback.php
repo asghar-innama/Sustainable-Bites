@@ -1,8 +1,5 @@
 
 <?php
-
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
  include("connect.php"); 
 if($_SESSION['name']==''){
@@ -19,9 +16,9 @@ if(isset($_POST['submit']))
     $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
     $query_run= mysqli_query($connection, $query);
     if($query_run)
-    {
+    { 
         echo '<script type="text/javascript">alert("data saved")</script>';
-        //header("location:delivery.html");
+        header("location:delivery.html");
     }
     else{
         echo '<script type="text/javascript">alert("data not saved")</script>';

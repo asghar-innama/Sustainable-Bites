@@ -75,7 +75,7 @@
 </div>
 
 
-    <!-- Load the LeafletJS library and JavaScript code for displaying the map and user's location 
+     Load the LeafletJS library and JavaScript code for displaying the map and user's location 
    
     <script>
       // Initialize the map and user's location marker
@@ -142,7 +142,7 @@
           alert("Error: The Geolocation service failed.");
         });
       }
-    </script-->
+    </script>
 
     <script>
       function getVisitorLocation() {
