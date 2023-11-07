@@ -1,29 +1,13 @@
 
 <?php
 include '../connection.php';
- include("connect.php"); 
-if($_SESSION['name']==''){
-	header("location:signin.php");
+include "connect.php";
+
+if (empty($_SESSION['name'])) {
+    header("location:signin.php");
+    exit;
 }
-$emailid= $_SESSION['email'];
-$connection=mysqli_connect("localhost:3307","root","");
-$db=mysqli_select_db($connection,'demo');
-if(isset($_POST['submit']))
-{
-    $name=mysqli_real_escape_string($connection, $_POST['name']);
-    $email=mysqli_real_escape_string($connection, $_POST['email']);
-    $message=mysqli_real_escape_string($connection, $_POST['message']);
-    $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
-    $query_run= mysqli_query($connection, $query);
-    if($query_run)
-    { 
-        echo '<script type="text/javascript">alert("data saved")</script>';
-        header("location:delivery.html");
-    }
-    else{
-        echo '<script type="text/javascript">alert("data not saved")</script>';
-    }
-}
+
 ?>
 <!DOCTYPE html>
 
@@ -111,8 +95,29 @@ if(isset($_POST['submit']))
                     <tbody>
                 
                         <?php
-                    
-                        $query="select * from user_feedback ";
+                        $emailid = $_SESSION['email'];
+
+                        if (isset($_POST['submit'])) {
+                            $name = mysqli_real_escape_string($connection, $_POST['name']);
+                            $email = mysqli_real_escape_string($connection, $_POST['email']);
+                            $message = mysqli_real_escape_string($connection, $_POST['message']);
+                        
+                            $query = "INSERT INTO user_feedback (name, email, message) VALUES ('$name', '$email', '$message')";
+                        
+                            $query_run = mysqli_query($connection, $query);
+                        
+                            if ($query_run) {
+                                echo '<script type="text/javascript">alert("Data saved")</script>';
+                                header("location:delivery.php");
+                            } else {
+                                echo '<script type="text/javascript">alert("Data not saved")</script>';
+                                // Check for any specific error messages
+                                if (mysqli_error($connection)) {
+                                    echo "MySQL Error: " . mysqli_error($connection);
+                                }
+                            }
+                        }
+                        $query="SELECT * FROM user_feedback";
                         $result=mysqli_query($connection, $query);
                         if($result==true){
                             while($row=mysqli_fetch_assoc($result)){

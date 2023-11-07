@@ -23,12 +23,11 @@ if(isset($_POST['submit']))
     $query_run= mysqli_query($connection, $query);
     if($query_run)
     {
-
-        echo '<script type="text/javascript">alert("data saved")</script>';
-        header("location:delivery.html");
+      echo '<script type="text/javascript">alert("Data saved");</script>';
+        //header("location:delivery.php");
     }
     else{
-        echo '<script type="text/javascript">alert("data not saved")</script>';
+      echo '<script type="text/javascript">alert("Data not saved");</script>';
     }
 }
 ?>

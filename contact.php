@@ -1,40 +1,31 @@
 <?php
-session_start(); // Start the session
-
-$connection = mysqli_connect("localhost:3307", "root", "");
-$db = mysqli_select_db($connection, 'demo');
-
-include "connect.php";
-
+//session_start();
+include('login.php');
 if (empty($_SESSION['name'])) {
     header("location:signin.php");
     exit; // Stop executing the code after redirection
 }
 
 $emailid = $_SESSION['email'];
-
+$connection=mysqli_connect("localhost:3307","root","");
+$db=mysqli_select_db($connection,'demo');
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    //$email = mysqli_real_escape_string($connection, $_POST['email']);
     $message = mysqli_real_escape_string($connection, $_POST['message']);
 
-    $query = "INSERT INTO user_feedback (name, email, message) VALUES (?, ?, ?)";
-    $stmt = mysqli_prepare($connection, $query);
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
+    $query = "INSERT INTO user_feedback(name,email,message) VALUES('$name','$emailid','$message')";
+    $stmt = mysqli_query($connection, $query);
+    if ($stmt) 
+    {
+      echo '<script type="text/javascript">alert("Data saved");</script>';
 
-        if (mysqli_stmt_execute($stmt)) {
-            echo '<script type="text/javascript">alert("Data saved");</script>';
-        } else {
-            echo '<script type="text/javascript">alert("Data not saved");</script>';
-        }
-        mysqli_stmt_close($stmt);
+    }
+    else {
+        echo '<script type="text/javascript">alert("Data not saved");</script>';
     }
 }
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -60,7 +51,7 @@ if (isset($_POST['submit'])) {
       <ul>
         <li><a href="home.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li> <a href="contact.html" class="active">Contact</a> </li>
+        <li> <a href="contact.php" class="active">Contact</a> </li>
         <li><a href="profile.php">Profile</a></li>
       </ul>
     </nav>
@@ -76,13 +67,15 @@ if (isset($_POST['submit'])) {
 
   </section>
   <div class="contact-form">
-    <form action="feedback.php" method="post"> <label for="name">Name:</label>
+    <form action="" method="post"> <label for="name">Name:</label>
       <input type="text" id="name" name="name">
       <br> <label for="email">Email:</label>
       <input type="email" id="email" name="email">
       <br> <label for="message">Message:</label> <textarea id="message" name="message"></textarea>
       <br>
-      <input type="submit" value="Send" name="submit">
+      <div class="btn">
+            <button type="submit" name="submit">SUBMIT</button>
+        </div>
     </form>
   </div>
   <div class="contact-info" style="padding: 10px;">
