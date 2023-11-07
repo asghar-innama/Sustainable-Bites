@@ -131,7 +131,6 @@ if(isset($_POST['submit']))
                 </div>   
             </div>
     </section>
-
     <script src="admin.js"></script>
 </body>
 </html>

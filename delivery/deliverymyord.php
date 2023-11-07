@@ -1,13 +1,25 @@
 <?php
-ob_start(); 
+ob_start();
 include '../connection.php';
- include("connect.php"); 
-if($_SESSION['name']==''){
-	header("location:deliverylogin.php");
+include "connect.php";
+
+if (empty($_SESSION['name'])) {
+    header("location:deliverylogin.php");
+    exit;
 }
-$name=$_SESSION['name'];
-$id=$_SESSION['Did'];
+
+$name = $_SESSION['name'];
+$id = $_SESSION['Did'];
+
+// Use the correct database connection details
+$connection = mysqli_connect("localhost:3307", "root", "", "demo");
+
+if (!$connection) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,15 +169,15 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
         <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Pickup Address\">".$row['From_address']."</td><td data-label=\"Delivery Address\">".$row['To_address']."</td>";
 ?>
         
-            <!-- <td><?= $row['Fid'] ?></td>
+             <td><?= $row['Fid'] ?></td>
             <td><?= $row['name'] ?></td>
-            <td><?= $row['address'] ?></td> -->
+            <td><?= $row['address'] ?></td> 
             <!-- <td data-label="Action" style="margin:auto"> -->
-                <!-- <?php if ($row['delivery_by'] == $id) { ?>
+                 <?php if ($row['delivery_by'] == $id) { ?>
                     Order assigned to you
                 <?php } else { ?>
                     Order assigned to another delivery person
-                <?php } ?> -->
+                <?php } ?>
             </td>
         </tr>
         <?php } ?>
