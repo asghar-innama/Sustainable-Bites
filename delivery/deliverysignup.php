@@ -66,8 +66,8 @@ if(isset($_POST['sign']))
                            <!-- <label for="district">District:</label> -->
                            <select id="district" name="district" style="padding:10px; padding-left: 20px;">
                           <option value="chennai">Bangalore</option>
-                          <option value="salem">Mysuru</option>
-                          <option value="kancheepuram" selected>Hebbal</option>
+                          <option value="coimbatore">Mysuru</option>
+                          <option value="madurai" selected>Hebbal</option>
                         </select>  
           </div>
           <br>
