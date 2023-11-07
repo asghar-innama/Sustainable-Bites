@@ -1,8 +1,8 @@
 <?php
 session_start();
 include '../connection.php';
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
+$connection = mysqli_connect("localhost:3307", "root", "");
+$db = mysqli_select_db($connection, 'demo');
 $msg=0;
 if (isset($_POST['sign'])) {
   $email = $_POST['email'];

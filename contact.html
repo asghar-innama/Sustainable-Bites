@@ -1,31 +1,40 @@
-<!--?php
+<?php
+session_start(); // Start the session
+
 $connection = mysqli_connect("localhost:3307", "root", "");
 $db = mysqli_select_db($connection, 'demo');
-include '../connection.php';
- include("connect.php"); 
-if($_SESSION['name']==''){
-	header("location:signin.php");
+
+include "connect.php";
+
+if (empty($_SESSION['name'])) {
+    header("location:signin.php");
+    exit; // Stop executing the code after redirection
 }
-$emailid= $_SESSION['email'];
-$connection=mysqli_connect("localhost:3307","root","");
-$db=mysqli_select_db($connection,'demo');
-if(isset($_POST['submit']))
-{
-    $name=mysqli_real_escape_string($connection, $_POST['name']);
-    $email=mysqli_real_escape_string($connection, $_POST['email']);
-    $message=mysqli_real_escape_string($connection, $_POST['message']);
-    $query="insert into user_feedback(name,email,message) values('$name','$email','$message')";
-    $query_run= mysqli_query($connection, $query);
-    if($query_run)
-    {
-        echo '<script type="text/javascript">alert("data saved")</script>';
-        //header("location:delivery.html");
-    }
-    else{
-        echo '<script type="text/javascript">alert("data not saved")</script>';
+
+$emailid = $_SESSION['email'];
+
+if (isset($_POST['submit'])) {
+    $name = mysqli_real_escape_string($connection, $_POST['name']);
+    $email = mysqli_real_escape_string($connection, $_POST['email']);
+    $message = mysqli_real_escape_string($connection, $_POST['message']);
+
+    $query = "INSERT INTO user_feedback (name, email, message) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($connection, $query);
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $message);
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo '<script type="text/javascript">alert("Data saved");</script>';
+        } else {
+            echo '<script type="text/javascript">alert("Data not saved");</script>';
+        }
+        mysqli_stmt_close($stmt);
     }
 }
-?-->
+?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -73,7 +82,7 @@ if(isset($_POST['submit']))
       <input type="email" id="email" name="email">
       <br> <label for="message">Message:</label> <textarea id="message" name="message"></textarea>
       <br>
-      <input type="submit" value="Send" name="send">
+      <input type="submit" value="Send" name="submit">
     </form>
   </div>
   <div class="contact-info" style="padding: 10px;">

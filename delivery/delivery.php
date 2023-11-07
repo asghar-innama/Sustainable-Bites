@@ -1,26 +1,30 @@
 <?php
-ob_start(); 
-// $connection = mysqli_connect("localhost:3307", "root", "");
-// $db = mysqli_select_db($connection, 'demo');
-include("connect.php"); 
+ob_start();
+
+$connection = mysqli_connect("localhost:3307", "root", "");
+$db = mysqli_select_db($connection, 'demo');
+
+
 include '../connection.php';
-if($_SESSION['name']==''){
-	header("location:deliverylogin.php");
+include "connect.php";
+if (empty($_SESSION['name'])) {
+    header("location:deliverylogin.php");
+    exit;
 }
-$name=$_SESSION['name'];
-$city=$_SESSION['city'];
-$ch=curl_init();
-curl_setopt($ch,CURLOPT_URL,"http://ip-api.com/json");
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-$result=curl_exec($ch);
-$result=json_decode($result);
-// $city= $result->city;
-// echo $city;
 
-$id=$_SESSION['Did'];
+$name = $_SESSION['name'];
+$id = $_SESSION['Did'];
 
+$city = "";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "http://ip-api.com/json");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$result = curl_exec($ch);
 
-
+if ($result) {
+    $result = json_decode($result);
+    //$city = $result->city;
+}
 ?>
 
 
@@ -102,94 +106,92 @@ $id=$_SESSION['Did'];
             <img src="../img/rider.gif" alt="" width="400" height="400"> 
           
         </div>
-        <!-- <h2><center>your Location : <?php echo"$city" ?></center></h2> -->
+         <!--h2><center>your Location : <?php echo"$city" ?></center></h2-->
         <div class="get">
             <?php
+            // Define the SQL query to fetch unassigned orders
+            $sql = "SELECT fd.Fid AS Fid,fd.location as cure, fd.name,fd.phoneno,fd.date,fd.delivery_by, fd.address as From_address, 
+            ad.name AS delivery_person_name, ad.address AS To_address
+            FROM food_donations fd
+            LEFT JOIN admin ad ON fd.assigned_to = ad.Aid where assigned_to IS NOT NULL and   delivery_by IS NULL and fd.location='$city';
+            ";
+
+            // Execute the query
+            $result=mysqli_query($connection, $sql);
+
+            // Check for errors
+            if (!$result) {
+                die("Error executing query: " . mysqli_error($conn));
+            }
+
+            // Fetch the data as an associative array
+            $data = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+
+            // If the delivery person has taken an order, update the assigned_to field in the database
+            if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
+                $order_id = $_POST['order_id'];
+                $delivery_person_id = $_POST['delivery_person_id'];
+                $sql = "SELECT * FROM food_donations WHERE Fid = $order_id AND delivery_by IS NOT NULL";
+                $result = mysqli_query($connection, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    // Order has already been assigned to someone else
+                    die("Sorry, this order has already been assigned to someone else.");
+                }
 
 
-// Define the SQL query to fetch unassigned orders
-$sql = "SELECT fd.Fid AS Fid,fd.location as cure, fd.name,fd.phoneno,fd.date,fd.delivery_by, fd.address as From_address, 
-ad.name AS delivery_person_name, ad.address AS To_address
-FROM food_donations fd
-LEFT JOIN admin ad ON fd.assigned_to = ad.Aid where assigned_to IS NOT NULL and   delivery_by IS NULL and fd.location='$city';
-";
-
-// Execute the query
-$result=mysqli_query($connection, $sql);
-
-// Check for errors
-if (!$result) {
-    die("Error executing query: " . mysqli_error($conn));
-}
-
-// Fetch the data as an associative array
-$data = array();
-while ($row = mysqli_fetch_assoc($result)) {
-    $data[] = $row;
-}
-
-// If the delivery person has taken an order, update the assigned_to field in the database
-if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
-    $order_id = $_POST['order_id'];
-    $delivery_person_id = $_POST['delivery_person_id'];
-    $sql = "SELECT * FROM food_donations WHERE Fid = $order_id AND delivery_by IS NOT NULL";
-    $result = mysqli_query($connection, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        // Order has already been assigned to someone else
-        die("Sorry, this order has already been assigned to someone else.");
-    }
+                $sql = "UPDATE food_donations SET delivery_by = $delivery_person_id WHERE Fid = $order_id";
+                $result = mysqli_query($conn, $sql);
+                $result=mysqli_query($connection, $sql);
 
 
-    $sql = "UPDATE food_donations SET delivery_by = $delivery_person_id WHERE Fid = $order_id";
-    // $result = mysqli_query($conn, $sql);
-    $result=mysqli_query($connection, $sql);
+                if (!$result) {
+                    die("Error assigning order: " . mysqli_error($conn));
+                }
+
+                // Reload the page to prevent duplicate assignments
+                header('Location: ' . $_SERVER['REQUEST_URI']);
+                // exit;
+                ob_end_flush();
+            }
+            //mysqli_close($conn);
 
 
-    if (!$result) {
-        die("Error assigning order: " . mysqli_error($conn));
-    }
+            ?>
+    <div class="log">
+    <!--button type="submit" name="food" onclick="">My orders</button> -->
+    <a href="deliverymyord.php" style="background-color: #FFD700;">My Orders</a>
 
-    // Reload the page to prevent duplicate assignments
-    header('Location: ' . $_SERVER['REQUEST_URI']);
-    // exit;
-    ob_end_flush();
-}
-// mysqli_close($conn);
+    </div>
 
-
-?>
-<div class="log">
-<!-- <button type="submit" name="food" onclick="">My orders</button> -->
-<a href="deliverymyord.php" style="background-color: #FFD700;">My Orders</a>
-
-</div>
-
-<!-- Display the orders in an HTML table -->
-<div class="table-container" >
-         <!-- <p id="heading">donated</p> -->
-         <div class="table-wrapper">
-        <table class="table">
-        <thead>
-        <tr style="background-color: #FFD700;">
-            <th >Name</th>
-            <!-- <th>food</th> -->
-            <!-- <th>Category</th> -->
-            <th>Phoneno</th>
-            <th>date/time</th>
-            <th>Pickup address</th>
-            <th>Delivery Address</th>
-            <th>Action</th>     
-        </tr>
-        </thead>
-       <tbody>
+    <!-- Display the orders in an HTML table -->
+    <div class="table-container" >
+            <!-- <p id="heading">donated</p> -->
+            <div class="table-wrapper">
+            <table class="table">
+            <thead>
+            <tr style="background-color: #FFD700;">
+                <th >Name</th>
+                <!-- <th>food</th> -->
+                <!-- <th>Category</th> -->
+                <th>Phoneno</th>
+                <th>date/time</th>
+                <th>Pickup address</th>
+                <th>Delivery Address</th>
+                <th>Action</th>     
+            </tr>
+            </thead>
+        <tbody>
 
         <?php foreach ($data as $row) { ?>
         <?php    echo "<tr><td data-label=\"name\">".$row['name']."</td><td data-label=\"phoneno\">".$row['phoneno']."</td><td data-label=\"date\">".$row['date']."</td><td data-label=\"Pickup Address\">".$row['From_address']."</td><td data-label=\"Delivery Address\">".$row['To_address']."</td>";
 ?>
-            <!-- <td><?= $row['Fid'] ?></td>
+            <td><?= $row['Fid'] ?></td>
             <td><?= $row['name'] ?></td>
-            <td><?= $row['address'] ?></td> -->
+            <td><?= $row['address'] ?></td>
             <td data-label="Action" style="margin:auto">
                 <?php if ($row['delivery_by'] == null) { ?>
                     <form method="post" action=" ">
@@ -204,7 +206,8 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
                 <?php } ?>
             </td>
         </tr>
-        <?php } ?>
+        <?php } 
+        ?>
     </tbody>
 </table>
     </div>
