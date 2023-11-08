@@ -122,6 +122,7 @@ if (isset($_POST['sign'])) {
     $result = mysqli_query($connection, $sql);
 
     if (!$result) {
+        
         die("Error executing query: " . mysqli_error($connection));
     }
 
